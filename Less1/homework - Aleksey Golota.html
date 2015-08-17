@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <title>Homework/js 1</title>
+</head>
+
+<body>
+    <script>
+    function foodQuantity() {
+        var dayPerYear = 365;
+        var countFood = 0;
+        var age = Number(document.getElementById("age").value);
+        var maxAge = Number(document.getElementById("maxAge").value);
+        var favoriteFood = " " + document.getElementById("favoriteFood").value;
+        var foodPerDay = Number(document.getElementById("foodPerDay").value);
+        var totalFood = document.querySelector('.totalFood');
+        var yearsTotal = maxAge - age;
+        var countFood = yearsTotal * dayPerYear * foodPerDay;
+        totalFood.innerHTML = "Вы должны приобрести " + countFood + favoriteFood + ", что бы вам хватило до глубокой старости";
+    }
+
+    function temperatureConverter() {
+        var myRe = /(\d+[\.]?\d+?)(C|F)/;
+        var tempAr = myRe.exec(document.getElementById("temperature").value);
+        var tempConv = document.querySelector('.tempConv');
+        var tempSource = tempAr[1];
+        var temperatureConverted;
+        if (tempAr[2] === "C") {
+            temperatureConverted = tempSource * 9 / 5 + 32;
+            tempConv.innerHTML = "Температура Цельсия: " + tempSource + ", температура Фаренгейта: " + temperatureConverted.toFixed(2);
+        } else if (tempAr[2] === "F") {
+            temperatureConverted = (tempSource - 32) * 5 / 9;
+            tempConv.innerHTML = "Температура Фаренгейта: " + tempSource + ", температура Цельсия: " + temperatureConverted.toFixed(2);
+        } else {
+            tempConv.innerHTML = "Вы неверно ввели температуру";
+        }
+    }
+    </script>
+    <style>
+    input {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    label {
+        padding-right: 10px;
+    }
+    </style>
+    <h2>Калькулятор снабжения на всю жизнь</h2>
+    <form name="foodQuant" action="#">
+        <label for="age">Ваш возраст?</label>
+        <input type="text" id="age" required placeholder="Ваш возраст">
+        <label for="maxAge">Сколько жить планируете?</label>
+        <input type="text" id="maxAge" required placeholder="Максимальный возраст">
+        <label for="favoriteFood">Любимая еда?</label>
+        <input type="text" id="favoriteFood" required placeholder="Любимая еда?">
+        <label for="foodPerDay">Сколько в день едите?</label>
+        <input type="text" id="foodPerDay" required placeholder="Сколько едите в день?">
+        <input type="button" value="Рассчитать количество еды" onclick="foodQuantity()">
+        <p class="totalFood"></p>
+    </form>
+    <h2>Конвертор температур</h2>
+    <p><strong>Введите температуру с указанием шкалы. "C" - для Цельсия, "F" - для Фаренгейта. Для примера: "36С", "34.5F"</strong></p>
+    <form name="converter" action="#">
+        <input type="text" id="temperature" required placeholder="Температура">
+        <input type="button" value="Конвертировать температуру" onclick="temperatureConverter()">
+        <p class="tempConv"></p>
+    </form>
+</body>
+
+</html>
