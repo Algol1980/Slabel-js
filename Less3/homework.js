@@ -1,4 +1,31 @@
+function Human(firstname, lastname, age, gender, profession, workingPlace, hobbies, bootersEated, booksTaken) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.age = age;
+    this.gender = gender;
+    this.proffesion = proffesion;
+    this.workingPlace = workingPlace;
+    this.hobbies = hobbies
+    this.bootersEated = bootersEated || 0;
+
+}
+var nextHuman = new Human("Viktor")
+algol.firstname = "Алексей";
+algol.lastname = "Голота";
+algol.age = 35;
+algol.gender = "Мужской";
+algol.proffesion = "издатель";
+algol.workingPlace = "Книжный магазин Vam-book";
+algol.hobbies = ["путешествия", "чтение", "семья", "получать новые знания"]
+algol.bootersEated = 0;
+algol.booksTaken = 0;
+algol.isHungry = Math.random() >= 0.5;
+algol.isTired = Math.random() >= 0.5;
+algol.isBusy = Math.random() >= 0.5;
+
+
 var algol = {
+
     algolInfo: function() {
         return "Имя: " + this.firstname + "\n" + "Фамилия: " + this.lastname + "\n" +
             "Возраст: " + this.age + "\n" + "Пол: " + this.gender + "\n" +
